@@ -1,12 +1,12 @@
 from setuptools import setup
-import opagitsync
+import opa_git_sync
 
 setup(
     name='opa-git-sync',
-    version=opagitsync.__version__,
+    version=opa_git_sync.__version__,
     url='https://github.com/tsandall/opa-git-sync',
     packages=[
-        'opagitsync',
+        'opa_git_sync',
     ],
     scripts=[
         'scripts/opa-git-sync',
