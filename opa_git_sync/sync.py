@@ -1,7 +1,7 @@
 import json
 import logging
 import time
-
+import requests
 
 logger = logging.getLogger(__name__)
 
@@ -11,7 +11,13 @@ class HTTPDestination(object):
         self.base_url = base_url
 
     def send(self, data):
-        raise NotImplemented
+        data = json.dumps(data)
+        response = requests.request(
+            method='PUT',
+            url=self.base_url,
+            data=data,
+            headers={'Content-Type': 'application/json'})
+        response.raise_for_status()
 
 
 class StdoutDestination(object):
