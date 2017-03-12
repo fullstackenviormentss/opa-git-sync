@@ -6,17 +6,11 @@ def test_mkdir():
     r = repo.Repo(name='test',
                   url="git@github.com/open-policy-agent/opa.git")
     root, nested = sync.mkdir(r, {
-        "github.com": {
-            "tsandall": {
-                "deadbeef": {}
-            },
-        },
+        "github.com/tsandall/deadbeef": {}
     })
     assert root == {
-        "github.com": {
-            "tsandall": {"deadbeef": {}},
-            "open-policy-agent": {"opa": {}},
-        },
+        "github.com/tsandall/deadbeef": {},
+        "github.com/open-policy-agent/opa": {},
     }
     assert nested == {}
 

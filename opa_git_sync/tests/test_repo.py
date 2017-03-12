@@ -15,7 +15,7 @@ def test_repo_path():
     r = repo.Repo(name='test',
                   url="git@github.com/open-policy-agent/opa.git")
 
-    assert r.path == ['open-policy-agent', 'opa']
+    assert r.path == 'open-policy-agent/opa'
 
 
 def test_repo_log():

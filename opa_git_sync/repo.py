@@ -58,4 +58,4 @@ class Repo(object):
     def path(self):
         """Returns Git repo path."""
         parsed = urlparse(self.url)
-        return parsed.path.strip('/').rstrip('.git').split('/')
+        return parsed.path.strip('/').rstrip('.git')

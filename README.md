@@ -27,3 +27,20 @@ To produce a release:
 - Run `make release` to build and tag the image and push to Docker Hub.
 - Manually update the `__version__` back to "-dev" for the next release and
   commit the change.
+
+## Running
+
+ See `opa-git-sync --help` for more information.
+
+### Examples
+
+> Replicate two repositories, foo and bar, with 100 most recent commits from
+> each every 30 seconds into documents at path /git.
+
+```
+$ export OPA_GIT_URL_foo=git@github.com/example/foo.git
+$ export OPA_GIT_DEPTH_foo=100
+$ export OPA_GIT_URL_bar=git@github.com/example/bar.git
+$ export OPA_GIT_DEPTH_bar=100
+$ opa-git-sync --base-url http://localhost:8181/v1/data/git --delay=30
+```

@@ -36,7 +36,7 @@ Examples
 ========
 
 "Replicate two repositories, foo and bar, with 100 most recent commits from
-each every 30 seconds into document at path /git/example":
+each every 30 seconds into document at path /git":
 
 $ export OPA_GIT_URL_foo=git@github.com/example/foo.git
 $ export OPA_GIT_DEPTH_foo=100
@@ -54,12 +54,8 @@ Data
 The repository data is nested under an object at the --base-url:
 
 {{
-    <hostname>: {{        # e.g., github.com
-       <repo-org>: {{     # e.g., example
-         <repo-name>: {{  # e.g., foo
-           ...
-         }}
-       }}
+    <url>: {{        # e.g., github.com/example/foo
+      ...
     }}
 }}
 

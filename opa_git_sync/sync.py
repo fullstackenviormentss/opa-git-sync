@@ -52,10 +52,8 @@ def loop(dest, delay, repos):
 
 def mkdir(repo, data):
     """Returns data after mutating it to include data for repo."""
+    key = repo.path
     if repo.hostname:
-        repo_data = data.setdefault(repo.hostname, {})
-    else:
-        repo_data = data
-    for part in repo.path:
-        repo_data = repo_data.setdefault(part, {})
+        key = repo.hostname + '/' + key
+    repo_data = data.setdefault(key, {})
     return data, repo_data
